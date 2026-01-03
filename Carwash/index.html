@@ -1,5 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-168834RS13"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-168834RS13");
+  </script>
+
   <head>
     <meta charset="utf-8" />
     <title>EED LaveAuto</title>
@@ -32,6 +47,30 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
   </head>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      /* 📞 CLIC SUR APPELEZ-NOUS */
+      document.querySelectorAll('a[href^="tel:"]').forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          gtag("event", "call_click", {
+            event_category: "engagement",
+            event_label: "Appelez-nous",
+          });
+        });
+      });
+
+      /* 📅 CLIC SUR RENDEZ-VOUS */
+      document.querySelectorAll('a[href*="booking"]').forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          gtag("event", "booking_click", {
+            event_category: "conversion",
+            event_label: "Rendez-vous",
+          });
+        });
+      });
+    });
+  </script>
 
   <body>
     <!-- Top Bar Start -->
