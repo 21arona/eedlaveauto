@@ -539,7 +539,6 @@
         </p>
       </div>
     </div>
-
     <style>
       .extras-container {
         width: 100%;
@@ -572,6 +571,86 @@
       @media (max-width: 768px) {
         .extras-text {
           text-align: center;
+        }
+      }
+    </style>
+
+    <div class="extras-container english-extras">
+      <p class="extras-line">
+        <span class="lang">English</span>
+        <span class="separator">|</span>
+
+        <span class="title">Extras:</span>
+
+        <span class="item">Pet Hair Removal</span>
+        <span class="separator">•</span>
+
+        <span class="item">Interior Deep Cleaning</span>
+        <span class="separator">•</span>
+
+        <span class="item">Rubber Mats Polishing</span>
+        <span class="separator">•</span>
+
+        <span class="item">Exterior Protective Wax</span>
+        <span class="separator">•</span>
+
+        <span class="item">Interior Shampoo & Floor Treatment</span>
+        <span class="separator">•</span>
+
+        <span class="item">Engine Cleaning & Protection</span>
+        <span class="separator">|</span>
+
+        <span class="price">Price: $5 – $10</span>
+      </p>
+    </div>
+
+    <style>
+      .english-extras {
+        padding: 30px 20px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .extras-line {
+        display: flex;
+        flex-wrap: wrap; /* responsive propre */
+        align-items: center;
+        gap: 10px;
+        font-size: 15px;
+        font-weight: 500;
+        color: #333;
+        max-width: 1100px;
+        text-align: center;
+      }
+
+      .lang {
+        font-weight: 700;
+        color: #000;
+      }
+
+      .title {
+        font-weight: 600;
+      }
+
+      .item {
+        color: #555;
+      }
+
+      .price {
+        font-weight: 700;
+        color: rgb(245, 120, 120);
+      }
+
+      .separator {
+        color: #aaa;
+        font-weight: 700;
+      }
+
+      /* MOBILE */
+      @media (max-width: 768px) {
+        .extras-line {
+          font-size: 14px;
+          justify-content: center;
         }
       }
     </style>
