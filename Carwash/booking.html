@@ -218,6 +218,130 @@
 
     <!-- Location End -->
 
+    <!-- RENDEZ-VOUS SECTION START -->
+<div class="appointment-section">
+  <div class="appointment-box">
+    <h2>Prendre un rendez-vous</h2>
+    <p>Expliquez-nous le service que vous souhaitez.</p>
+
+    <form id="appointment-form">
+      <input type="text" name="name" placeholder="Nom *" required />
+      <input type="tel" name="phone" placeholder="Téléphone *" required />
+      <input type="email" name="email" placeholder="Adresse email"  />
+
+      <textarea
+        name="service"
+        placeholder="Service souhaité (ex: lavage complet, tire dressing, intérieur, etc.) *"
+        rows="4"
+        required
+      ></textarea>
+
+      <button type="submit">Envoyer la demande</button>
+    </form>
+
+    <p id="form-message"></p>
+  </div>
+</div>
+
+<style>
+.appointment-section {
+  padding: 20px 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f8f9fa;
+}
+
+.appointment-box {
+  background: #ffffff;
+  padding: 40px;
+  width: 100%;
+  max-width: 520px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.appointment-box h2 {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.appointment-box p {
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.appointment-box input,
+.appointment-box textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  resize: none;
+}
+
+.appointment-box button {
+  width: 100%;
+  padding: 12px;
+  background: #fbc531;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.appointment-box button:hover {
+  background: #e1aa00;
+}
+
+#form-message {
+  margin-top: 15px;
+  font-weight: bold;
+}
+</style>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+  (function () {
+    emailjs.init("VXrxCjioO6p93R7_9"); // 
+  })();
+
+  document
+    .getElementById("appointment-form")
+    .addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      emailjs
+        .send("service_6ql6qy9", "template_ubgbv4a", {
+          name: this.name.value,
+          phone: this.phone.value,
+          email: this.email.value,
+          service: this.service.value,
+        })
+        .then(
+          function () {
+            document.getElementById("form-message").style.color = "green";
+            document.getElementById("form-message").innerText =
+              "Demande envoyée avec succès ✔️";
+            document.getElementById("appointment-form").reset();
+          },
+          function () {
+            document.getElementById("form-message").style.color = "red";
+            document.getElementById("form-message").innerText =
+              "Erreur lors de l'envoi ❌";
+          }
+        );
+    });
+</script>
+<!-- RENDEZ-VOUS SECTION END -->
+
+
+
     <!-- Footer Start -->
     <div class="footer">
       <div class="container">
