@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-168834RS13"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-168834RS13");
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-JT2SLKVWRX"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-JT2SLKVWRX");
+  </script>
+
+  <head>
+    <meta charset="utf-8" />
+    <title>EED Lave Auto - Carwash</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="Free Website Template" name="keywords" />
+    <meta content="Free Website Template" name="description" />
+
+    <!-- Favicon -->
+    <link href="img/eedlogo.png" rel="icon" />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS Libraries -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet" />
+    <link href="lib/animate/animate.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      /* 📞 CLIC SUR APPELEZ-NOUS */
+      document.querySelectorAll('a[href^="tel:"]').forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          gtag("event", "call_click", {
+            event_category: "engagement",
+            event_label: "Appelez-nous",
+          });
+        });
+      });
+
+      /* 📅 CLIC SUR RENDEZ-VOUS */
+      document.querySelectorAll('a[href*="booking"]').forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          gtag("event", "booking_click", {
+            event_category: "conversion",
+            event_label: "Rendez-vous",
+          });
+        });
+      });
+    });
+  </script>
+
+  <!-- Top Bar Start -->
+  <div class="top-bar">
+    <img
+      src="img/eedlogo.png"
+      alt="EED Car Wash Logo"
+      style="height: 140px; margin-right: 5%; width: 140px; margin-left: 1%"
+    />
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-4 col-md-12">
+          <div class="logo">
+            <a
+              href="index.html"
+              style="display: flex; align-items: center; text-decoration: none"
+            >
+              <br />
+              <h2 style="color: yellow; font-weight: bold; font-size: 2.5rem">
+                Car Wash <br />Auto Wash
+              </h2>
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-8 col-md-7 d-none d-lg-block">
+          <div class="row">
+            <div class="col-4">
+              <div class="top-bar-item">
+                <div class="top-bar-icon">
+                  <i class="far fa-clock"></i>
+                </div>
+                <div class="top-bar-text">
+                  <h3>Opening Hours</h3>
+                  <p>Monday - Thursday, 8:00 AM - 5:00 PM</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="top-bar-item">
+                <div class="top-bar-icon">
+                  <i class="fa fa-phone-alt"></i>
+                </div>
+                <div class="top-bar-text">
+                  <h3>Call Us</h3>
+                  <p>+1 514 249 1842</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="top-bar-item">
+                <div class="top-bar-icon">
+                  <i class="far fa-envelope"></i>
+                </div>
+                <div class="top-bar-text">
+                  <h3>Email</h3>
+                  <p>eiyedaniel@yahoo.ca</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Top Bar End -->
+
+  <!-- Nav Bar Start -->
+  <div class="nav-bar">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <!-- Brand -->
+        <a href="#" class="navbar-brand">MENU</a>
+
+        <a
+          href="booking.html"
+          class="nav-link d-lg-none"
+          style="font-weight: bold; color: yellow"
+        >
+          FR
+        </a>
+
+        <!-- Burger -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- COLLAPSIBLE MENU -->
+        <div
+          class="collapse navbar-collapse justify-content-between"
+          id="navbarCollapse"
+        >
+          <!-- Menu -->
+          <div class="navbar-nav mr-auto">
+            <a href="indexFr.html" class="nav-item nav-link active">Home</a>
+            <a href="serviceFr.html" class="nav-item nav-link">Services</a>
+            <a href="priceFr.html" class="nav-item nav-link">Pricing</a>
+            <a href="bookingFr.html" class="nav-item nav-link">Booking</a>
+
+            <a
+              href="booking.html"
+              class="nav-item nav-link d-none d-lg-block"
+              style="font-weight: bold; color: yellow"
+            >
+              FR
+            </a>
+          </div>
+
+          <!-- Contact Button (desktop only) -->
+          <div class="ml-auto d-none d-lg-block">
+            <a class="btn btn-custom" href="bookingFr.html">
+              Contact & Confirm Your Booking
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!-- Nav Bar End -->
+
+  <!-- Page Header Start -->
+  <div class="page-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>Appointment</h2>
+        </div>
+        <div class="col-12">
+          <a href="">Home</a>
+          <a href="">Appointment</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page Header End -->
+
+  <!-- Location Start -->
+  <div class="location">
+    <div class="container">
+      <div class="row align-items-start">
+        <!-- MAP À GAUCHE -->
+        <div class="col-lg-7">
+          <div
+            style="
+              width: 100%;
+              height: 70vh;
+              border-radius: 10px;
+              margin-bottom: 5%;
+              overflow: hidden;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            "
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.406233894133!2d-73.5733896!3d45.5019004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91be3abd69cbf%3A0xf49c4bd78de4b7c6!2sEED%20LAVE%20AUTO!5e0!3m2!1sfr!2sca!4v1765655147633!5m2!1sfr!2sca"
+              style="width: 100%; height: 100%; border: 0"
+              loading="lazy"
+            >
+            </iframe>
+          </div>
+        </div>
+
+        <!-- DROITE : I I I -->
+        <div class="col-lg-5">
+          <div class="right-stack">
+            <div class="location-item">
+              <i class="fa fa-map-marker-alt"></i>
+              <div class="location-text">
+                <h3>Point de lavage</h3>
+                <p>
+                  900 Blvd. De Maisonneuve Ouest 3e Etage, Montréal, QC H3A 0A8
+                </p>
+                <p><strong>Call:</strong> +1 514 249 1842</p>
+              </div>
+            </div>
+
+            <div class="location-item">
+              <i class="fa fa-map-marker-alt"></i>
+              <div class="location-text">
+                <h3>Point de lavage</h3>
+                <p>
+                  900 Blvd. De Maisonneuve Ouest 3e Etage, Montréal, QC H3A 0A8
+                </p>
+                <p><strong>Call:</strong> +1 514 249 1842</p>
+              </div>
+            </div>
+
+            <a
+              style="margin-left: 40%"
+              class="btn btn-custom"
+              href="tel:+15142491842"
+              >Appelez-nous</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Location End -->
+
+  <!-- APPOINTMENT SECTION START -->
+  <div class="appointment-section">
+    <div class="appointment-box">
+      <h2>Book an Appointment</h2>
+      <p>Tell us about the service you are looking for.</p>
+
+      <form id="appointment-form">
+        <input type="text" name="name" placeholder="Name *" required />
+        <input type="tel" name="phone" placeholder="Phone *" required />
+        <input type="email" name="email" placeholder="Email address" />
+
+        <textarea
+          name="service"
+          placeholder="Requested service (e.g. full wash, tire dressing, interior cleaning, etc.) *"
+          rows="4"
+          required
+        ></textarea>
+
+        <button type="submit">Send Request</button>
+      </form>
+
+      <p id="form-message"></p>
+    </div>
+  </div>
+  <!-- APPOINTMENT SECTION END -->
+
+  <style>
+    .appointment-section {
+      padding: 20px 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f8f9fa;
+    }
+
+    .appointment-box {
+      background: #ffffff;
+      padding: 40px;
+      width: 100%;
+      max-width: 520px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .appointment-box h2 {
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .appointment-box p {
+      margin-bottom: 25px;
+      color: #555;
+    }
+
+    .appointment-box input,
+    .appointment-box textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+
+    .appointment-box button {
+      width: 100%;
+      padding: 12px;
+      background: #fbc531;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .appointment-box button:hover {
+      background: #e1aa00;
+    }
+
+    #form-message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+
+  <!-- Footer Start -->
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-contact">
+            <h2>Contact</h2>
+            <p>
+              <i class="fa fa-map-marker-alt"></i> 900 Blvd. De Maisonneuve
+              Ouest, 3e étage, Montréal, QC H3A 0A8
+            </p>
+            <p><i class="fa fa-phone-alt"></i> +1 514 249 1842</p>
+            <p><i class="fa fa-envelope"></i> eiyedaniel@yahoo.ca</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6"></div>
+        <div class="col-lg-6 col-md-12 text-right">
+          <div class="footer-logo">
+            <img
+              src="img/eedlogo.png"
+              alt="EEDLaveAuto Logo"
+              style="height: 30%; width: 30%"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container copyright">
+      <p>&copy; <a href="#">EEDLaveAuto</a>, All rights reserved.</p>
+    </div>
+  </div>
+  <!-- Footer End -->
+
+  <!-- Back to top button -->
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- Pre Loader -->
+  <div id="loader" class="show">
+    <div class="loader"></div>
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="lib/waypoints/waypoints.min.js"></script>
+  <script src="lib/counterup/counterup.min.js"></script>
+
+  <!-- Contact Javascript File -->
+  <script src="mail/jqBootstrapValidation.min.js"></script>
+  <script src="mail/contact.js"></script>
+
+  <!-- Template Javascript -->
+  <script src="js/main.js"></script>
+</html>
