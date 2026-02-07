@@ -278,6 +278,13 @@
           <input type="tel" name="phone" placeholder="Téléphone *" required />
           <input type="email" name="email" placeholder="Adresse email" />
 
+          <input
+            type="datetime-local"
+            name="appointment_datetime"
+            id="appointment_datetime"
+            required
+          />
+
           <textarea
             name="service"
             placeholder="Service souhaité (ex: lavage complet, tire dressing, intérieur, etc.) *"
@@ -356,20 +363,65 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
     <script>
+      /* INIT EMAILJS */
       (function () {
-        emailjs.init("VXrxCjioO6p93R7_9"); //
+        emailjs.init("VXrxCjioO6p93R7_9");
       })();
 
+      /* FORMAT DATE EN FRANÇAIS LISIBLE */
+      function formatDateFR(dateString) {
+        const date = new Date(dateString);
+
+        const days = [
+          "Dimanche",
+          "Lundi",
+          "Mardi",
+          "Mercredi",
+          "Jeudi",
+          "Vendredi",
+          "Samedi",
+        ];
+
+        const months = [
+          "janvier",
+          "février",
+          "mars",
+          "avril",
+          "mai",
+          "juin",
+          "juillet",
+          "août",
+          "septembre",
+          "octobre",
+          "novembre",
+          "décembre",
+        ];
+
+        const dayName = days[date.getDay()];
+        const day = date.getDate();
+        const month = months[date.getMonth()];
+        const year = date.getFullYear();
+
+        const hours = String(date.getHours()).padStart(2, "0");
+        const minutes = String(date.getMinutes()).padStart(2, "0");
+
+        return `${dayName} ${day} ${month} ${year} à ${hours}h${minutes}`;
+      }
+
+      /* ENVOI DU FORMULAIRE */
       document
         .getElementById("appointment-form")
         .addEventListener("submit", function (e) {
           e.preventDefault();
+
+          const formattedDate = formatDateFR(this.appointment_datetime.value);
 
           emailjs
             .send("service_6ql6qy9", "template_ubgbv4a", {
               name: this.name.value,
               phone: this.phone.value,
               email: this.email.value,
+              appointment_datetime: formattedDate,
               service: this.service.value,
             })
             .then(
@@ -387,6 +439,39 @@
             );
         });
     </script>
+
+    <!-- datetime -->
+    <script>
+      const datetimeInput = document.getElementById("appointment_datetime");
+
+      // Bloquer les dates passées
+      const now = new Date();
+      now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+      datetimeInput.min = now.toISOString().slice(0, 16);
+
+      datetimeInput.addEventListener("change", function () {
+        const selectedDate = new Date(this.value);
+        const day = selectedDate.getDay();
+        const hour = selectedDate.getHours();
+
+        // Autoriser uniquement LUNDI (1) à JEUDI (4)
+        if (day < 1 || day > 4) {
+          alert(
+            "Les rendez-vous sont disponibles du lundi au jeudi uniquement."
+          );
+          this.value = "";
+          return;
+        }
+
+        // Autoriser uniquement entre 08h et 17h
+        if (hour < 8 || hour >= 17) {
+          alert("Les rendez-vous sont disponibles entre 08h et 17h.");
+          this.value = "";
+          return;
+        }
+      });
+    </script>
+
     <!-- RENDEZ-VOUS SECTION END -->
 
     <!-- Footer Start -->

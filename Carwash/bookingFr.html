@@ -292,16 +292,23 @@
   <div class="appointment-section">
     <div class="appointment-box">
       <h2>Book an Appointment</h2>
-      <p>Tell us about the service you are looking for.</p>
+      <p>Please tell us which service you would like.</p>
 
       <form id="appointment-form">
-        <input type="text" name="name" placeholder="Name *" required />
-        <input type="tel" name="phone" placeholder="Phone *" required />
-        <input type="email" name="email" placeholder="Email address" />
+        <input type="text" name="name" placeholder="Full Name *" required />
+        <input type="tel" name="phone" placeholder="Phone Number *" required />
+        <input type="email" name="email" placeholder="Email Address" />
+
+        <input
+          type="datetime-local"
+          name="appointment_datetime"
+          id="appointment_datetime"
+          required
+        />
 
         <textarea
           name="service"
-          placeholder="Requested service (e.g. full wash, tire dressing, interior cleaning, etc.) *"
+          placeholder="Requested service (e.g. full wash, tire dressing, interior, etc.) *"
           rows="4"
           required
         ></textarea>
@@ -312,6 +319,177 @@
       <p id="form-message"></p>
     </div>
   </div>
+
+  <style>
+    .appointment-section {
+      padding: 20px 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #f8f9fa;
+    }
+
+    .appointment-box {
+      background: #ffffff;
+      padding: 40px;
+      width: 100%;
+      max-width: 520px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .appointment-box h2 {
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .appointment-box p {
+      margin-bottom: 25px;
+      color: #555;
+    }
+
+    .appointment-box input,
+    .appointment-box textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+
+    .appointment-box button {
+      width: 100%;
+      padding: 12px;
+      background: #fbc531;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .appointment-box button:hover {
+      background: #e1aa00;
+    }
+
+    #form-message {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+
+  <!-- EMAILJS -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <script>
+    /* INIT EMAILJS */
+    (function () {
+      emailjs.init("VXrxCjioO6p93R7_9");
+    })();
+
+    /* FORMAT DATE (FR DISPLAY FOR EMAIL – DO NOT CHANGE LOGIC) */
+    function formatDateFR(dateString) {
+      const date = new Date(dateString);
+
+      const days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+
+      const dayName = days[date.getDay()];
+      const day = date.getDate();
+      const month = months[date.getMonth()];
+      const year = date.getFullYear();
+
+      const hours = String(date.getHours()).padStart(2, "0");
+      const minutes = String(date.getMinutes()).padStart(2, "0");
+
+      return `${dayName} ${day} ${month} ${year} at ${hours}:${minutes}`;
+    }
+
+    /* FORM SUBMISSION */
+    document
+      .getElementById("appointment-form")
+      .addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formattedDate = formatDateFR(this.appointment_datetime.value);
+
+        emailjs
+          .send("service_6ql6qy9", "template_ubgbv4a", {
+            name: this.name.value,
+            phone: this.phone.value,
+            email: this.email.value,
+            appointment_datetime: formattedDate,
+            service: this.service.value,
+          })
+          .then(
+            function () {
+              document.getElementById("form-message").style.color = "green";
+              document.getElementById("form-message").innerText =
+                "Request sent successfully ✔️";
+              document.getElementById("appointment-form").reset();
+            },
+            function () {
+              document.getElementById("form-message").style.color = "red";
+              document.getElementById("form-message").innerText =
+                "Error while sending ❌";
+            }
+          );
+      });
+  </script>
+
+  <!-- DATETIME RULES -->
+  <script>
+    const datetimeInput = document.getElementById("appointment_datetime");
+
+    // Block past dates
+    const now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    datetimeInput.min = now.toISOString().slice(0, 16);
+
+    datetimeInput.addEventListener("change", function () {
+      const selectedDate = new Date(this.value);
+      const day = selectedDate.getDay();
+      const hour = selectedDate.getHours();
+
+      // Allow MONDAY (1) to THURSDAY (4)
+      if (day < 1 || day > 4) {
+        alert("Appointments are available from Monday to Thursday only.");
+        this.value = "";
+        return;
+      }
+
+      // Allow between 08:00 and 17:00
+      if (hour < 8 || hour >= 17) {
+        alert("Appointments are available between 8:00 AM and 5:00 PM.");
+        this.value = "";
+        return;
+      }
+    });
+  </script>
   <!-- APPOINTMENT SECTION END -->
 
   <style>
