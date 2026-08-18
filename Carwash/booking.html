@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -200,6 +200,124 @@
       </div>
     </div>
     <!-- Page Header End -->
+
+    <!-- Gift Cards -->
+    <section class="gift-cards">
+      <style>
+        /* Scope spécifique à la section */
+        .gift-cards {
+          padding: 60px 20px;
+          background-color: #f8fafc;
+          font-family:
+            -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+            Arial, sans-serif;
+        }
+
+        .gift-cards .container {
+          max-width: 1100px;
+          margin: 0 auto;
+        }
+
+        .gift-cards .text-center {
+          text-align: center;
+        }
+
+        /* En-tête */
+        .gift-cards .section-header p {
+          color: #1e56a0;
+          font-weight: 600;
+          font-size: 1.1rem;
+          margin-bottom: 8px;
+        }
+
+        .gift-cards .section-header h2 {
+          color: #0f172a;
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-top: 0;
+          margin-bottom: 40px;
+        }
+
+        /* Conteneur Flexbox (côte à côte) */
+        .gift-cards .cards-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          gap: 30px;
+          flex-wrap: wrap; /* S'adapte sur mobile sans déformer */
+        }
+
+        /* Carte individuelle */
+        .gift-cards .card-item {
+          flex: 1 1 400px;
+          max-width: 480px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        /* Style des images */
+        .gift-cards .card-img {
+          width: 100%;
+          height: auto;
+          display: block;
+          border-radius: 16px;
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+          object-fit: cover;
+        }
+
+        /* Bouton d'action */
+        .gift-cards .btn-offrir {
+          display: inline-block;
+          margin-top: 20px;
+          padding: 10px 32px;
+          background-color: #2563eb;
+          color: #ffffff;
+          text-decoration: none;
+          font-size: 1rem;
+          font-weight: 600;
+          border-radius: 8px;
+          transition:
+            background-color 0.2s ease,
+            transform 0.2s ease;
+        }
+
+        .gift-cards .btn-offrir:hover {
+          background-color: #1d4ed8;
+          transform: translateY(-2px);
+        }
+      </style>
+
+      <div class="container">
+        <!-- En-tête -->
+        <div class="section-header text-center">
+          <p>Cartes Cadeaux</p>
+          <h2>Offrez le plaisir du lavage à votre entourage</h2>
+        </div>
+
+        <!-- Wrapper des cartes -->
+        <div class="cards-wrapper">
+          <!-- Carte Gauche -->
+          <div class="card-item">
+            <img
+              src="img/eeedfullredcertificat.jpeg"
+              alt="Carte Cadeau Lavage Express"
+              class="card-img"
+            />
+          </div>
+
+          <!-- Carte Droite -->
+          <div class="card-item">
+            <img
+              src="img/eeedbluefullcertificat.jpeg"
+              alt="Carte Cadeau Soin Intérieur"
+              class="card-img"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Gift Cards End -->
 
     <!-- Location Start -->
     <div class="location">
@@ -436,7 +554,7 @@
                 document.getElementById("form-message").style.color = "red";
                 document.getElementById("form-message").innerText =
                   "Erreur lors de l'envoi ❌";
-              }
+              },
             );
         });
     </script>
@@ -458,7 +576,7 @@
         // Autoriser uniquement LUNDI (1) à JEUDI (4)
         if (day < 1 || day > 4) {
           alert(
-            "Les rendez-vous sont disponibles du lundi au jeudi uniquement."
+            "Les rendez-vous sont disponibles du lundi au jeudi uniquement.",
           );
           this.value = "";
           return;
